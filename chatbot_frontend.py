@@ -29,6 +29,8 @@ def load_conversation_from_thread_id(tread_id):
     # Check if messages key exists in state values, return empty list if not
     return state.values.get('messages', [])
 
+
+
 ###################### Session state setup ######################
 # initialize message history in session state
 if "message_history" not in st.session_state:

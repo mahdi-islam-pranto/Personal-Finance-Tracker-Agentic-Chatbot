@@ -15,4 +15,5 @@ dependencies = [
     "langchain-openai>=1.0.3",
     "langgraph>=1.0.3",
     "langgraph-checkpoint-sqlite>=3.0.0",
+    "streamlit>=1.51.0",
 ]

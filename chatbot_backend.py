@@ -10,11 +10,14 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 # for tools
 from langchain_core.tools import tool
 from langchain_community.tools import DuckDuckGoSearchRun
+# for prebuilt tool node with tools_condition
 from langgraph.prebuilt import ToolNode, tools_condition
 import requests
 from dotenv import load_dotenv
 import sqlite3
 load_dotenv()
+
+
 
 # define tools
 search = DuckDuckGoSearchRun(description="Search for information on the internet")
@@ -38,12 +41,12 @@ def get_jobs_tool(job_title: str):
 tools = [search, get_jobs_tool]
 
 # define llm
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
+# llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
-openai_llm = ChatOpenAI(model="gpt-5")
+openai_llm = ChatOpenAI(model="gpt-5-nano")
 
 # define llm with tools
-llm_with_tools = llm.bind_tools(tools=tools)
+llm_with_tools = openai_llm.bind_tools(tools=tools)
 
 # define state
 class ChatState(TypedDict):
