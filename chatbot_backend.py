@@ -40,6 +40,8 @@ tools = [search, get_jobs_tool]
 # define llm
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
+openai_llm = ChatOpenAI(model="gpt-5")
+
 # define llm with tools
 llm_with_tools = llm.bind_tools(tools=tools)
 
