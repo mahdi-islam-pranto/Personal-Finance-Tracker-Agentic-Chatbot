@@ -14,7 +14,7 @@ from langgraph.prebuilt import ToolNode, tools_condition
 import requests
 from dotenv import load_dotenv
 import sqlite3
-# load_dotenv()
+load_dotenv()
 
 # define tools
 search = DuckDuckGoSearchRun(description="Search for information on the internet")
@@ -38,7 +38,7 @@ def get_jobs_tool(job_title: str):
 tools = [search, get_jobs_tool]
 
 # define llm
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash",api_key="AIzaSyC8k0BJEofzDvH9pXmUCEsilPlSBSZmf5s")
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 # define llm with tools
 llm_with_tools = llm.bind_tools(tools=tools)
